@@ -1,0 +1,35 @@
+<div class="container">
+<div class="panel panel-default">
+  <div class="panel-heading">PENDING ACTIONS</div>
+<div class="table-responsive">
+              <table class="table table-bordered">
+                      <thead>
+                              <tr>
+                                      <th>Client</th>
+                                      <th>Action</th>
+                                      <th>Mailed at</th>
+                                      <th>Procurement Date</th>
+                                      <th>Renewal Date</th>
+                                      <th>Status</th>
+                                      <th>Update</th>
+                                    
+                                  </tr>
+                      </thead>
+                      <tbody>
+                      <tr ng-repeat="record in info | orderBy : '-time'" >
+                          <td>{{record.l_id.client_id.client_name}}</td>
+                          <td>{{record.action}}</td>
+                          <td>{{record.time|date : yyyy-MM-dd}}</td>
+                          <td>{{record.l_id.licence_procurement_date|date : yyyy-MM-dd }}</td>
+                          <td>{{record.l_id.support_renewal_date|date : yyyy-MM-dd}}</td>
+                          <td>{{record.l_id.license_status}}</td>
+                          <td><a class="glyphicon glyphicon-align-justify" href="#!/client?id={{record.l_id.client_id._id}}&license={{record.l_id._id}}&openEditModel=true" data-toggle="modal" data-target="#license_edit_model" ></a></td>
+                        
+                        </tr>
+                      </tbody>
+                    </table>
+ </div> </div>
+</div>
+
+<!--ng-click="$window.location='http://localhost:3000/#!/client?id={{record.l_id._id}}';"-->
+

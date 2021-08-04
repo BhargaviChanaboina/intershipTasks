@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="">
+              
+  <div class="panel panel-default col-md-12" style="padding: 0px">
+          <div class="panel-heading">OVERALL LICENSE DISTRIBUTION</div>
+          <div class="panel-body">
+        <div id="barchart" style="height: 400px;"></div>
+
+      </div>
+      </div>
+      </div>
+        <div class="row">
+                <div class="col-md-6">
+  <div class="panel panel-default">
+          <div class="panel-heading">OVERALL LICENSE DISTRIBUTION</div>
+          <div class="panel-body">
+        <div id="piechart_3d" style="height: 400px;"></div>
+</div>
+</div>
+</div>
+<div class="col-md-6">
+<div class="panel panel-default" ng-init="get_services()">
+                <div class="panel-heading">PRODUCT WISE LICENSE DISTRIBUTION
+                                    
+                               <select  class="panel-right" name="repeatSelect" id="repeatSelect" ng-model="product"  class="form-control" ng-change="graph_by_product()"
+                               data-ng-options="option.service_handle as option.service  for option in services">
+
+                                 <!--    <ng-optons
+                                                <option ng-repeat="option in services" value="{{option.service_handle}}">{{option.service}}</opt -->ion>
+                                              </select>
+                </div>
+                <div class="panel-body">
+              <div id="piechart" style="height: 400px;"></div>
+      </div>
+</div>
+      </div>
+</div>
+
+
+
+    </div>

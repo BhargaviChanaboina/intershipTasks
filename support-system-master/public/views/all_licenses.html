@@ -1,0 +1,46 @@
+    <div class="container" ng-init="get_all_licenses()">
+      <div class="panel panel-default">
+              <!-- Default panel contents -->
+              <div class="panel-heading">LICENSED PRODUCTS
+              </div>
+              <!-- List group -->
+              <div class="table-responsive">
+              <table class="table table-bordered">
+                      <thead>
+                               <tr>
+                                 <th>No</th>
+                                        <th ng-click="sortBy('client_id.client_name')">Client Name
+                                        <span class="sortorder" ng-show="propertyName === 'client_id.client_name'" ng-class="{reverse: reverse}"></span>
+                                      </th> 
+                                      <th ng-click="sortBy('product')">License
+                                        <span class="sortorder" ng-show="propertyName === 'product'" ng-class="{reverse: reverse}"></span>
+                                      </th>
+                                      <th ng-click="sortBy('no_of_licenses')">Count
+                                        <span class="sortorder" ng-show="propertyName === 'no_of_licenses'" ng-class="{reverse: reverse}"></span>
+                                      </th> 
+                                      <th ng-click="sortBy('licence_procurement_date')">Procurement Date
+                                        <span class="sortorder" ng-show="propertyName === 'licence_procurement_date'" ng-class="{reverse: reverse}"></span>
+                                      </th> 
+                                      <th ng-click="sortBy('support_renewal_date')">Renewal Date
+                                        <span class="sortorder" ng-show="propertyName === 'support_renewal_date'" ng-class="{reverse: reverse}"></span>
+                                      </th> 
+                                      <th ng-click="sortBy('license_status')">Certificate Status
+                                        <span class="sortorder" ng-show="propertyName === 'license_status'" ng-class="{reverse: reverse}"></span>
+                                      </th>
+                                  </tr> 
+                                </thead>
+                      <tbody>
+                         <tr ng-repeat="license in licenses" ng-style="(license.license_status === 'false') ? {'background-color':'bisque'}:{'background-color':'White'}">
+                          <td>{{($index+1)}}</td>
+                          <td>{{license.client_id.client_name}}</td>
+                          <td>{{license.product}}</td>
+                          <td>{{license.no_of_licenses}}</td>
+                          <td>{{license.licence_procurement_date|date:'yyyy-MM-dd'}}</td>
+                          <td>{{license.support_renewal_date |date:'yyyy-MM-dd'}}</td>
+                          <td><span class="label {{license.license_status}}">{{license.license_status}}</span></td>
+                        </tr> 
+                      </tbody>
+                    </table>
+                    </div>
+            </div>
+            </div>

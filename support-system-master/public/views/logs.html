@@ -1,0 +1,61 @@
+
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">Log
+				<input type="search" name="search" ng-model="search_log" class="search panel-right" style="margin-left: 5px;" placeholder="Search Log ...">
+			</div>
+	<table class="table" style="text-align: left;">
+		<tr>
+			<th>Date</th>
+			<th style="text-align: left;">Activity</th>
+			<th>By</th>
+		</tr>
+		<tr ng-repeat="log in logs | filter : search_log">
+			<td style="width: 25%">{{log.time}}</td>
+			<td style="text-align: left;width: 60%">{{log.action}}</td>
+			<td>{{log.user_name}}</td>
+		</tr>
+	</table>
+	</div>
+</div>
+</div>
+
+<style type="text/css">
+	    #custom-search-form {
+        margin:0;
+        margin-top: 5px;
+        padding: 0;
+    }
+ 
+    #custom-search-form .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+ 
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+ 
+    #custom-search-form button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+ 
+    .search-query:focus + button {
+        z-index: 3;   
+    }
+</style>

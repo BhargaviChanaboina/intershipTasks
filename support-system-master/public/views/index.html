@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Support Sheet Dashboard</title>
+  <base href="/">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- custom css -->
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+	<!-- google fonts -->
+  <!-- favicon -->
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <!--controller scripts-->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+  <script type="text/javascript" src="/js/app.js"></script>
+  <script type="text/javascript" src="/js/app_routes.js"></script>
+  <script type="text/javascript" src="/js/controllers/loginCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/resetCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/resetTokenCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/clientCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/singleClientCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/serviceCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/changeCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/userCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/insightCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/licenseCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/mailCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/logCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/notifyCtrl.js"></script>
+  <script type="text/javascript" src="/js/controllers/settingCtrl.js"></script>
+  <!-- scripts for graphs -->
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+</head>
+<body ng-app="support" ng-controller="supportCtrl">
+<nav class="navbar navbar-default navbar-default-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+           <a class="navbar-brand" href="#!/dashboard"><img src="./logo.png" class="brand-image"></img></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" >
+          <ul class="nav navbar-nav navbar-right" ng-show="enableAction">
+            <li><a href="#!/dashboard" class='{{(loc=="/dashboard"?"_active":"")}}'>Dashboard</a></li>
+            <li><a href="#!/users" class='{{(loc=="/users"?"_active":"")}}'>All Users</a></li>
+            <li><a href="#!/log" class='{{(loc=="/log"?"_active":"")}}'>Activity Log</a></li>
+            <li><a href="#!/services" class='{{(loc=="/services"?"_active":"")}}'>All Products</a></li>
+            <li><a href="#!/new_client" class='{{(loc=="/new_client"?"_active":"")}}'>Add Client</a></li>
+            <li><a href="#!/all_licenses" class='{{(loc=="/all_licenses"?"_active":"")}}'>All Licenses</a></li>
+            <li><a href="#!/insights" class='{{(loc=="/insights"?"_active":"")}}'>Insights</a></li>
+            <li><a href="#!/mail_settings" class='{{(loc=="/mail_settings"?"_active":"")}}'>Mail Templates</a></li>
+            <li><a href="#!/settings" class='{{(loc=="/settings"?"_active":"")}}'>Settings</a></li>
+            <li><a href="#!/notify"><span class="glyphicon glyphicon-bell"></span><span ng-model="notificationcount" class="notificationcount">{{notification_count}}</span></a></li>
+                          <li class="dropdown">
+                            <a  class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user_name}} <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#!/change_password">Change Password</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="/logout">logout</a></li>
+                            </ul>
+                          </li>
+          </ul>
+
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+	 <!-- Fixed navbar -->
+  <!--  <nav class="navbar navbar-default navbar-default-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+ <a class="navbar-brand" href="#!/dashboard"><img src="./logo.png" class="brand-image"></img></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        	<div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right"  ng-show="enableAction">
+                                      
+                        </ul>
+                      </div>
+        </div>
+      </div>
+    </nav>-->
+    <!--
+    <div class="container" ng-show="enableAction">
+      <nav class="navbar navbar-default quick_nav">
+        <div class="container-fluid">
+          <ul class="nav navbar-nav">
+            <li><a href="#!/dashboard">Dashboard</a></li>
+            <li><a href="#!/users">All Users</a></li>
+            <li><a href="#!/services">All Products</a></li>
+            <li><a href="#!/new_client">Add Client</a></li>
+            <li><a href="#!/all_licenses">All Licenses</a></li>
+            <li><a href="#!/insights">Insights</a></li>
+            <li><a href="#!/settings">Settings</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  -->
+    <!-- container -->
+    
+
+<div ng-view></div>
+</body>
+</html>

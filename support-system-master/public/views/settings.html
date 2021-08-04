@@ -1,0 +1,65 @@
+  <div class="container">
+        <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">SETTINGS</div>
+                <div class="panel-body">
+                    
+
+    <div class="row">
+        <div class="col-md-12">
+            <legend>General Settings</legend>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <h5>  License Expiry </h5>
+        </div>
+        <div class="col-md-9">
+            <ul class="list-inline">
+                <li><input id="fname" ng-model="settings.owindow" name="First Name" class="form-control input-sm" placeholder="*" type="text"></li>
+                <li>Days remaining</li>
+            </ul>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-md-3">
+            <h5>  Grace Period </h5>
+        </div>
+        <div class="col-md-9">
+            <ul class="list-inline">
+                <li><input id="fname" ng-model="settings.hwindow" name="First Name" class="form-control input-sm" placeholder="*" type="text"></li>
+                <li>Days to wait for response after license gets expired</li>
+            </ul>
+        </div>
+    </div>
+        <div class="row">
+        <div class="col-md-3">
+            <h5>  Mail Type </h5>
+        </div>
+        <div class="col-md-9">
+            <ul class="list-inline">
+                <li>Manual</li>
+                <li>
+            <label class="switch">
+              <input type="checkbox" ng-model="settings.auto">
+              <span class="slider round"></span>
+            </label></li>
+            <li>Automatic</li>
+        </div>
+    </div>
+
+    
+    <div class="row">
+        <div class="col-md-3">
+            
+        </div>
+        <div class="col-md-9">
+            <button type="button" class="btn btn-primary" ng-click="update()">Save Changes</button>
+            <p style="margin-top: 10px"><small style="color:green">{{message}}</small></p>
+        </div>
+    </div>
+    
+
+                </div>
+</div>
+</div>

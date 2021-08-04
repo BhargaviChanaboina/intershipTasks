@@ -1,0 +1,111 @@
+<html>
+    <style>
+        #frm{
+            display : none;
+            }
+    </style>
+<body>
+    <center><table id="table_id" border="2px"  onkeyup="sum(event.target.className)">
+        <tr bgcolor="pink" >
+            <th>name</th>
+            <th>subject1</th>
+            <th>subject2</th>
+            <th>subject3</th>
+            <th>total</th>
+        </tr>
+    </table></center><br>
+   <center><input type="button" value="new student" onclick="newstudent()"></center> 
+ <center>  <form name="f1" id="frm" border=1px ><br>
+    <h1>student marks</h1>
+        name:      <input type="text" id="std_name"><br><br>
+        subject1:  <input type="number" id="num1"><br><br>
+        subject2:  <input type="number" id="num2"><br><br>
+        subject3:  <input type="number" id="num3"><br><br><br>
+        <input type="button" value="add student" onclick="add_student()">
+    </form></center> 
+
+<script>
+    var i=0;
+    var cname="clas";//class name
+    /*To display the form on clicking new student*/
+    function newstudent()
+    {
+    var form_id=document.getElementById("frm");
+    form_id.style.display="block";
+    }
+ /*to add data from form to table*/
+    function add_student()
+    {
+        var form_id=document.getElementById("frm");
+       var name1=document.getElementById("std_name");
+       var n1=document.getElementById("num1");
+       var n2=document.getElementById("num2");
+       var n3=document.getElementById("num3");
+        var tableid=document.getElementById("table_id");
+        var row=tableid.insertRow(1);//creating new row
+        //inserting columns
+        var c1=row.insertCell(0);
+        var c2=row.insertCell(1);
+        var c3=row.insertCell(2);
+        var c4=row.insertCell(3);
+        var c5=row.insertCell(4);
+        //creating elements for the columns
+        var t1=document.createElement("p");
+        var t2=document.createElement("input");
+        var t3=document.createElement("input");
+        var t4=document.createElement("input");
+        var t5=document.createElement("p");
+        cname="clas"+i;
+        //adding classname to the elements created
+        t1.className=cname;
+        t2.className=cname;
+        t3.className=cname;
+        t4.className=cname;
+        t5.className=cname;
+        //appending columns to the row created
+        c1.appendChild(t1);
+        c2.appendChild(t2);
+        c3.appendChild(t3);
+        c4.appendChild(t4);
+        c5.appendChild(t5);
+        //addingvalues from form to the elements created
+        var k=document.getElementsByClassName(cname);
+        k[0].innerHTML=name1.value;
+        k[1].value=n1.value;
+        k[2].value=n2.value;
+        k[3].value=n3.value;
+        k[4].innerHTML=0; 
+        sum(cname);//verifying while inserting to the table
+        cname="clas";
+    form_id.style.display="none";
+    i++;
+    }
+    //function to validate the table contents
+    function sum(class_name)
+            {
+var sum=0;
+var b=document.getElementsByClassName(class_name);
+
+var len=b.length;
+for(var i=1;i<b.length-1;i++)
+{
+    if(isNaN(Number(b[i].value)) || Number(b[i].value)<0||Number(b[i].value)>100||!Number.isInteger(Number(b[i].value)))
+    {
+        b[i].style.background="white";
+        b[i].value="wrong input";
+    }
+    else if(Number(b[i].value)<35&&Number(b[i].value)!=0)
+    {
+        b[i].style.background= "yellow";   
+    }
+    else{
+        b[i].style.background= "white";
+    }
+   
+    sum=sum+Number(b[i].value);
+    
+}
+b[len-1].innerHTML=sum;
+            }
+</script>
+</body></html>

@@ -1,0 +1,37 @@
+#border_div
+{
+    position :relative;
+top:150px;
+left:300px;
+height:400px;
+width:500px;
+border:8px solid blue;
+}
+#mover{
+position:absolute;
+top:95%;
+height:20px;
+width:80px;
+background-color:palevioletred;
+}
+#ball
+{
+position:absolute;
+top:280px;
+left:228px;
+height:15px;
+width:15px;
+border-radius:100px/100px;
+background-color:green;
+z-index:1000;
+}
+.inner_rect
+{
+position:absolute;
+
+    
+    height:10px;
+    width:30px;
+    background-color:red;
+    margin-left:40px;
+}

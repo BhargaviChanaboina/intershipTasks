@@ -1,0 +1,36 @@
+
+<!-- <link href="https://select2.github.io/dist/css/select2.min.css" rel="stylesheet">
+<script src="https://select2.github.io/dist/js/select2.full.js"></script> -->
+<div class="container">
+		<div class="">
+	<div class="panel panel-default">
+			<!-- Default panel contents -->
+			<div class="panel-heading"> Add New Mail Template
+				 <select class="panel-right" name="repeatSelect" id="repeatSelect" ng-model="place_holder"  class="form-control" ng-change="add_placeholder()">
+				 
+                                                <option ng-repeat="option in suggestions" value="{{option}}">{{option}}</option>
+                                              </select>
+                                              <span style="float: right;margin-right:3px; ">Placeholders </span>
+                                             
+			</div>
+			<div class="panel-body message">
+				<div class="col-sm-11 col-sm-offset-1">
+					<br>	
+					<div class="form-group"> 
+						<input type="text" class="form-control" ng-model="mail_template.type" name="title" placeholder="Enter TYPE of this mail template">
+					</div>
+					<div class="form-group"> 
+						<input type="text" class="form-control" ng-model="mail_template.title" name="title" placeholder="Enter TITLE for this type of mails">
+					</div>
+					<div class="form-group"> 
+						<textarea class="form-control" ng-model="mail_template.content" id="message" name="body" rows="12" placeholder=""></textarea>
+					</div>
+					<div class="form-group">	
+                        <center>
+                        <button ng-click="add_mail_template()" class="btn btn-success">Save</button>
+                        </center>
+					</div>
+				</div>	
+			</div>		
+	</div><!--/.col-->		
+</div>

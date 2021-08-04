@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <style>input{height:40px; width:100px;background-color:white;
+        }</style>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    </head>
+    <body>
+        <center><div ng-app="tableapp" ng-controller="tableCtrl" >
+            <table border=1>
+                <tr>
+                <th>name</th>
+                <th>sub1</th>
+                <th>sub2</th>
+                <th>sub3</th>
+                <th>total</th>
+            </tr>
+            <tr ng-repeat="data in record" ng-keyup="func($index,$event.target)">
+                <td>{{data.name}}</td>
+                <td><input type="number" value={{data.sub1}}  ng-model="data.sub1" /></td>
+                <td><input type="number" value={{data.sub2}} ng-model="data.sub2" /></td>
+                <td><input type="number" value={{data.sub3}} ng-model="data.sub3" /></td>
+                <td>{{data.total}}</td>
+            </tr>
+        </table><br><br>
+        <input type="button" value="add" ng-click="showhide()" /><br><br>
+            
+                <form ng-hide="hide">
+                    name:<input type="text" ng-model="n"/><br><br>
+                    sub1:<input type="text" ng-model="m1"/><br><br>
+                    sub2:<input type="text" ng-model="m2"/><br><br>
+                    sub3:<input type="text" ng-model="m3"/><br><br>
+                    <input type="button"  value="submit" ng-click="addStudent()" />
+                </form>
+        </div></center>
+        <script src="tableController.js"></script>
+    </body>
+</html>

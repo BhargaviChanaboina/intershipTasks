@@ -1,0 +1,119 @@
+<div class="container" ng-init="get_all_services()">
+	
+	<div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">ALL PRODUCTS
+                		           <button href="#" class="btn btn-default panel-right" data-toggle="modal" data-target="#exampleModal">Add Product</button>
+                </div>
+
+              
+                <!-- List group -->
+                <div class="table-responsive">
+                <table class="table table-bordered">
+                        <thead>
+                                <tr>
+                                        <th>No.</th>
+                                        <th>PRODUCT</th>
+                                        <th>PRODUCT HANDLE</th>
+                                        <th>ABOUT PRODUCT</th>
+                                        <th>Actions</th>
+                                    </tr>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="service in services" ng-style="(service.status !== true) ? {'background-color':'bisque'}:{'background-color':'White'}">
+                            <td>{{($index+1)}}</td>
+                            <td>{{service.service}}</td>
+                            <td>{{service.service_handle}}</td>
+                            <td>{{service.description}}</td>
+                            <td><button class="btn btn-primary" data-toggle="modal" data-target="#editService" ng-click="get_service(service._id)">Edit</button></td>
+                          </tr>
+                          <tr>
+                        </tbody>
+                      </table>
+                      </div>
+              </div>
+</div>
+
+
+   <!-- Modal for adding-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Add New Product
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form name="serviceform">
+      <div class="modal-body">
+  <div class="form-group">
+    <label for="License">PRODUCT NAME</label>
+    <input type="text" name="productname" ng-model="service.service" class="form-control" id="License" aria-describedby="emailHelp" placeholder="Service*" required="true" ng-pattern="/^[a-zA-Z]+[a-zA-Z ]*$/">
+    <p ng-show="serviceform.productname.$error.pattern" class="help-block">Invalid</p>
+  </div>
+  <div class="form-group">
+    <label for="Count">PRODUCT CODE</label>
+    <input type="text" name="productcode" ng-model="service.handle" class="form-control" id="Count" placeholder="Service handle*" required="true">
+  </div>
+    <div class="form-group">
+    <label for="Count">COLOR CODE</label>
+    <input type="color" name="colorcode" ng-model="service.colour" class="form-control" id="Color" placeholder="Service Color">
+  </div>
+  <div class="form-group">
+    <label for="Procurement">ABOUT PRODUCT</label>
+    <textarea ng-model="service.description" class="form-control" id="Procurement" placeholder="Service Description"></textarea>
+  </div>
+    </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-disabled="serviceform.$invalid" ng-click="add_service()">Save changes</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+   <!-- Modal for Editing-->
+<div class="modal fade" id="editService" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        Update Product
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form name="updateform">
+      <div class="modal-body">
+  <div class="form-group">
+    <label for="License">PRODUCT NAME</label>
+    <input type="text" name="productname" ng-model="update_service.service" class="form-control" id="License" aria-describedby="emailHelp" placeholder="Service*" required="true" ng-pattern="/^[a-zA-Z]+[a-zA-Z ]*$/">
+    <p ng-show="updateform.productname.$error.pattern" class="help-block">Invalid</p>
+  </div>
+  <div class="form-group">
+    <label for="Count">PRODUCT CODE</label>
+    <input type="text" name="productcode" ng-model="update_service.service_handle" class="form-control" id="Count" placeholder="Service handle*" required="true">
+  </div>
+    <div class="form-group">
+    <label for="Count">COLOR CODE</label>
+    <input type="color" name="colorcode" ng-model="update_service.color" class="" id="Color" placeholder="Service Color">
+  </div>
+  <div class="form-group">
+    <label for="Procurement">ABOUT PRODUCT</label>
+    <textarea ng-model="update_service.description" class="form-control" id="Procurement" placeholder="Service Description"></textarea>
+  </div>
+  <label for="Procurement">STATUS</label>
+  <label class="switch">
+              <input id="status_check" type="checkbox" ng-model="update_service.status" ng-change="status_changed()">
+              <span class="slider round"></span>
+            </label>
+            </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-disabled="updateform.$invalid" ng-click="update_service_please()">Save changes</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>

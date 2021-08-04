@@ -1,0 +1,38 @@
+<div class="container" ng-init="get_mail_templates()">
+        <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading">All Mail Templates
+                    
+                    <input type="search" name="search" ng-model="search_query" class="search panel-right" style="margin-left: 5px;" placeholder="Search">
+                     <a href="#!/add_mail_template" class="btn btn-default panel-right" data-toggle="modal" data-target="#exampleModal">Add New Mail Type</a>
+                </div>
+
+
+              
+                <!-- List group -->
+                <div class="table-responsive">
+                <table class="table table-bordered">
+                        <thead>
+                                <tr>
+                                        <th>No.</th>
+                                        <th>TYPE</th>
+                                        <!--<th>Certificate Sent</th>-->
+                                        <th>TITLE</th>
+                                        <th>DESCRIPTION</th>
+                                        <th>ACTION</th>
+                                    </tr>
+                        </thead>
+                        <tbody>
+                          <tr ng-repeat="template in mail_templates">
+                            <td>{{($index+1)}}</td>
+                            <td>{{template.email_type}}</td>
+                            <td>{{template.title}}</td>
+                            <td>{{template.content}}</td>
+                            <td><a class="btn btn-primary" href="#!/update_mail_template?id={{template._id}}">View</a></td>
+                          </tr>
+                          <tr>
+                        </tbody>
+                      </table>
+                      </div>
+              </div>
+  </div>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            #input1{
+ height:40px; width:250px;background-color:azure;font-size:20px;
+            }
+        </style>
+    </head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+<center> <input ng-model="name" id="input1" placeholder="enter your search"><br><br>
+<input type=button style="height:40px;width:100px;" ng-click="srch()" value="click">
+<h2>You are searching for : {{name}}</h2>
+<p>{{info}}</p>
+</center>
+</div>
+<script>
+var app = angular.module('myApp', []);
+app.config(['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }
+]);
+app.controller('myCtrl', function($scope,$http) {
+    $scope.name = "";
+    $scope.info="";
+    $scope.srch=function(){
+        console.log($scope.name);
+var Data={
+  srh:$scope.name,
+}
+$http({
+  method : 'GET',
+  url    : 'https://search.paytm.com/suggest?s=macbook',
+ // headers: {'Access-Control-Allow-Origin':'*'},
+ // data   : angular.fromJson(Data)
+}).then(function(res){
+  console.log("in success");
+console.log(res.data+"hi");
+$scope.info=res.data;
+  },function(err){
+console.log(err);
+  });
+    }
+});
+</script>
+</body>
+</html>

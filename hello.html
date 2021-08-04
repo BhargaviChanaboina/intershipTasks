@@ -1,0 +1,124 @@
+<html>
+    <head><style>
+            input:invalid {
+                border-color: "tomato";
+              }
+              </style>
+    </head>
+    <body>
+        <table border=1px onclick="add()">
+            <tr>
+            <th>name</th>
+            <th>s1</th>
+            <th>s2</th>
+            <th>s3</th>
+            <th>total</th>
+            </tr>
+            <tr >
+<td >std1</td>
+<td><input type="number" class="a1" onkeyup="add1()" /></td>
+<td><input type="number" class="a1" onkeyup="add1()"></td>
+<td><input type="number" class="a1" onkeyup="add1()"></td>
+<td><input type="number" id="b1" value="total"></td>
+            </tr>
+            <tr>
+                    <td >std2</td>
+                    
+                    <td><input type="number" class="a2" onkeyup="add2()" /></td>
+                    <td><input type="number" class="a2" onkeyup="add2()" /></td>
+                    <td><input type="number" class="a2" onkeyup="add2()" /></td>
+                    
+                    <td ><input type="number" id="b2" value="total" ></td>
+                                </tr>
+                                <tr >
+                                        <td>std3</td>
+                                        <td><input type="number" class="a3" onkeyup="add3()" /></td>
+                                        <td><input type="number" class="a3" onkeyup="add3()" /></td>
+                                        <td><input type="number" class="a3" onkeyup="add3()" /></td>
+                                        <td><input type="number" id="b3" value="total" /></td>
+                                                    </tr>
+        </table>
+        <script>
+            function add1()
+            {
+            var sum=0;
+var a=document.getElementsByClassName("a1");
+var sum=0;
+for(var i=0;i<a.length;i++)
+{
+    if(isNaN(Number(a[i].value)) || Number(a[i].value)<0||Number(a[i].value)>100||!Number.isInteger(Number(a[i].value)))
+    {
+        a[i].style.background="white";
+        a[i].value="wrong input";
+    }
+    else if(Number(a[i].value)<35&&Number(a[i].value)!=0)
+    {
+        a[i].style.background= "yellow";   
+    }
+    else{
+        a[i].style.background= "white";
+    }
+sum=sum+Number(a[i].value);
+
+    //document.write(a[i].value+"--");
+    
+}
+document.getElementById("b1").value=sum;
+/*document.getElementById("t1").innerText=sum;
+document.write(sum);*/
+            }
+            function add2()
+            {
+var sum=0;
+var b=document.getElementsByClassName("a2");
+
+
+for(var i=0;i<b.length;i++)
+{
+    if(isNaN(Number(b[i].value)) || Number(b[i].value)<0||Number(b[i].value)>100||!Number.isInteger(Number(b[i].value)))
+    {
+        b[i].style.background="white";
+        b[i].value="wrong input";
+    }
+    else if(Number(b[i].value)<35&&Number(b[i].value)!=0)
+    {
+        b[i].style.background= "yellow";   
+    }
+    else{
+        b[i].style.background= "white";
+    }
+   
+    sum=sum+Number(b[i].value);
+    
+}
+document.getElementById("b2").value=sum;
+            }
+            function add3()
+            {
+            var sum=0;
+
+var c=document.getElementsByClassName("a3");
+
+for(var i=0;i<c.length;i++)
+{
+    if(isNaN(Number(c[i].value)) || Number(c[i].value)<0||Number(c[i].value)>100||!Number.isInteger(Number(c[i].value)))
+    {
+        c[i].style.background="white";
+        c[i].value="wrong input";
+    }
+    else if(Number(c[i].value)<35&&Number(c[i].value)!=0)
+    {
+        c[i].style.background= "yellow";   
+    }
+    else{
+        c[i].style.background= "white";
+    }
+
+    sum=sum+Number(c[i].value);
+    
+}
+document.getElementById("b3").value=sum;
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/userAndQuiz.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    </head>
+    <body ng-app="myapp">
+          <center><h1>Quiz Application</h1></center>
+            <div ng-controller="mytable" style="top:30%;left:10%">
+                <h1>Update Quiz</h1>
+                <input type="button" value="add" ng-click="show()"/><br><br>
+                <form ng-hide="showHide">question <input type="textarea" ng-model="q"/><br><br>
+                    option1:<input type="text" ng-model="o1"/><br><br>
+                    option2:<input type="text" ng-model="o2"/><br><br>
+                    option3:<input type="text" ng-model="o3"/><br><br>
+                    answer:<input type="text" ng-model="a"/><br><br>
+                <input type="button" value="addQ" ng-click="add()" /></form>
+
+                <input type="button" value="submit" ng-click="send()" />    
+            </div>
+
+            <div style="position:absolute;top:10%;left:60%;" ng-controller="mytable">
+                <h2>Search Question</h2>
+                <input type="search" ng-model="search" placeholder="search" ng-keyup="searchFunction()" />
+                <ul ng-repeat="x in matches">
+                        <li ng-click="trial()">{{x._source.question}}</li>
+                </ul>
+            </div>
+        <script src="/controllers/quizCtrl.js"> </script>
+    </body>
+</html>

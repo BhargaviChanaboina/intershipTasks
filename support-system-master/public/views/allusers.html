@@ -1,0 +1,129 @@
+<div class="container" ng-init="get_all_users()">
+<div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading">Users
+                <button href="#" class="btn btn-primary panel-right" data-toggle="modal" data-target="#exampleModal">Add User</button>
+        </div>
+        <!-- List group -->
+        <div class="table-responsive">
+        <table class="table table-bordered">
+                <thead>
+                        <tr>
+                                <th>SNo.</th>
+                                <th>User Name</th>
+                                <th>User ID</th>
+                                <th>Role</th>
+                                <th>Email</th>
+                                <th>Contact</th>
+                                <th>Action</th>
+                            </tr>
+                </thead>
+                <tbody>
+                 <tr ng-repeat="user in users">
+                    <td>{{($index+1)}}</td>  
+                    <td>{{user.user_name}}</td>   
+                    <td>{{user.user_id}} </td>   
+                    <td>{{user.role}} </td>   
+                    <td>{{user.email}} </td> 
+                    <td>{{user.contact}} </td>                             
+                    <td><button class="btn btn-primary" href="#" data-toggle="modal" data-target="#editModal" ng-click="user_info(user)">Edit</button></td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+  
+          </div>
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <b>Add New User</b>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                        <form name="userform">
+                  <div class="form-group">
+                    <label for="username">User Name</label>
+                    <input type="text" name="username" class="form-control" id="username" required="true" aria-describedby="emailHelp" placeholder="User Name*" ng-model="user.name" ng-pattern="/^[a-zA-Z_ ]+[a-zA-Z0-9._]+$/">
+                    <p ng-show="userform.username.$error.pattern" class="help-block">Invalid</p>
+                  </div>
+                  <div class="form-group">
+                    <label for="userid">User ID</label>
+                    <input type="text" name="userid" class="form-control" ng-minlength="1" id="userid" placeholder="User ID*" required="required" ng-model="user.user_id">
+                    <p ng-show="userform.userid.$error.minlength" class="help-block">UserID is Required</p> 
+                  </div>
+                    <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" class="form-control" ng-minlength="4" id="password" placeholder="Password*" required="required" ng-model="user.password">
+                     <p ng-show="userform.password.$error.minlength" class="help-block">Strong Password is Required</p> 
+                  </div>
+                  <div class="form-group">
+                    <label for="role">Role</label>
+                    <input type="text" class="form-control" id="role" placeholder="User's Role" ng-model="user.role">
+                  </div>
+                  <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="useremail" class="form-control" id="email" placeholder="Email*" required="required" ng-pattern="/^([a-zA-Z]+[A-Za-z0-9._]+@[a-z]+\.[a-z]{2,3})|([a-zA-Z]+[A-Za-z0-9.]+@[a-z]+\.[a-z]+\.[a-zA-Z]{2,3})$/" ng-model="user.email">
+                        <p ng-show="userform.useremail.$error.pattern" class="help-block"> Invalid Email</p>
+                </div>
+                 <div class="form-group">
+                            <label for="contact">Contact</label>
+                            <input type="number" name="contact" class="form-control" id="contact" ng-maxlength="13" placeholder="Contact*" required="required" ng-model="user.contact">
+                            <p ng-show="userform.contact.$error.maxlength" class="help-block">Invalid number</p> 
+                          </div>
+                </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-disabled="userform.$invalid" ng-click="add_user()">Save changes</button>
+                      </div>
+                    </div>
+                  </div>
+                </div> 
+                </div>
+
+                <!-- modal for editing user -->
+                <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <b align="center">Edit User</b>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                              <form name="usereditform">
+                        <div class="form-group">
+                          <label for="username">User Name</label>
+                          <input type="text" class="form-control" id="editusername" aria-describedby="emailHelp"  ng-model="single_user.user_name" value="single_user.user_name">
+                        </div>
+                        <div class="form-group">
+                          <label for="userid">User ID</label>
+                          <input type="text" class="form-control" id="edituserid" ng-model="single_user.user_id" value="single_user.user_id">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="role">Role</label>
+                          <input type="text" class="form-control" id="editrole" ng-model="single_user.role" value="single_user.role">
+                        </div>
+                        <div class="form-group">
+                              <label for="email">Email</label>
+                              <input type="email" name="useremail" class="form-control" id="editemail" ng-model="single_user.email" value="single_user.email">
+                      </div>
+                       <div class="form-group">
+                                  <label for="contact">Contact</label>
+                                  <input type="contact" class="form-control" id="editcontact" ng-model="single_user.contact" value="single_user.contact">
+                      </div>
+                      </form>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                              <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="update_user()">Save changes</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div> 
+                      </div>

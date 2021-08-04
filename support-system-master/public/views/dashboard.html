@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Testing bootstrap</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- custom css -->
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz" rel="stylesheet">
+</head>
+<body>
+
+     <!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-default-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="logo.png" class="brand-image"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <div id="navbar" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#" data-toggle="modal" data-target="#exampleModalLong">Add New Client</a></li>
+                              <li><a href="#">Add New User</a></li>
+                              <li><a href="#">All Users</a></li>
+                              <li role="separator" class="divider"></li>
+                              <li><a href="#">logout</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </div>
+        </div>
+      </div>
+    </nav>
+<div class="container">
+  <nav class="navbar navbar-default navbar-default-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        </div>
+      </div>
+    </nav>
+</div>
+<div class="container">
+    <div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Customers</th>
+                <th>Certificate Sent</th>
+                <th>Partners</th>
+                <th>Products Licensed</th>
+                <th>No. of licenses</th>
+                <th>License Procurement Date</th>
+                <th>Support Renewal Date</th>
+                <th>Status</th>
+                <th>Users</th>
+                <th>Primary Contact</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="success">
+                <td>2</td>
+                <td>Water</td>
+                <td>01/07/2014</td>
+                <td>Paid</td>
+                <td>2</td>
+                <td>Water</td>
+                <td>01/07/2014</td>
+                <td>Paid</td>
+                <td>2</td>
+                <td>Water</td>
+                <td>01/07/2014</td>
+                <td>Paid</td>
+                <td>2</td>
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</body>
+</html>
+
+ <!-- Modal for adding-->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Add New Question</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Customers</label>
+    <input type="text" ng-model="newq.question" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Customers">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Certificate Sent</label>
+    <input type="text" ng-model="new_option" class="form-control" id="exampleInputPassword1" placeholder="Certificate Sent">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Partners</label>
+    <input type="text" ng-model="new_option" class="form-control" id="exampleInputPassword1" placeholder="Partners">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Products Licensed</label>
+    <input type="text" ng-model="new_option" class="form-control" id="exampleInputPassword1" placeholder="Products Licensed">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">No. of Licenses</label>
+    <input type="text" ng-model="new_option" class="form-control" id="exampleInputPassword1" placeholder="No. of Licenses">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">License Procurement Date</label>
+    <input type="text" ng-model="new_option" class="form-control" id="exampleInputPassword1" placeholder="License Procurement Date">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Support Renewal Date</label>
+    <input type="text" ng-model="new_option" class="form-control" id="exampleInputPassword1" placeholder="Support Renewal Date">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Status</label>
+    <input type="text" ng-model="new_option" class="form-control" id="exampleInputPassword1" placeholder="Status">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Users</label>
+    <input type="text" ng-model="new_option" class="form-control" id="exampleInputPassword1" placeholder="Users">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Primary Contact</label>
+    <input type="text" ng-model="new_option" class="form-control" id="exampleInputPassword1" placeholder="Primary Contact">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Email</label>
+    <input type="text" ng-model="new_option" class="form-control" id="exampleInputPassword1" placeholder="Email">
+  </div>
+
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="addquestion()">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+.h {
+    
+width: 30%;
+border: 7px solid green;
+
+top : 40%;
+height : 50%;
+left :30%;
+color : "violet";
+}
+#h1 
+{
+  position : relative;
+  top: 0;
+  left: 0;
+  width :10px;
+height :10px;
+background-color: red;
+border: 1px solid green;
+
+}
+#h2
+ {
+top :50;
+right :50;
+background-color : blue;
+width : 10px;
+height : 10px;
+border :2px bisque;
+}
+#scr
+{
+  border:2px solid green;;
+  height:20%;
+  width :20%;
+  top :150px;
+  left :30%;
+  background-color : "purple";
+
+
+}

@@ -1,0 +1,51 @@
+<div class="container">
+	<center>
+<div class="signindiv">
+	<form class="form-signin"> 
+	  <div id="profileimg">
+		<img id="profile-img" class="profile-img-card" src="logo-black.png"> 
+		</div>     
+		<br>
+	  <input type="text" class="form-control" name="username" ng-model="user_id" placeholder="Username" required="" autofocus="" />
+	  <br>
+	  <input type="password" class="form-control" name="password" ng-model="password" placeholder="Password" required=""/>   
+	  <br>   
+	  <button class="btn btn-lg btn-primary btn-block" ng-click="login()" type="submit">Login</button>   
+	  <br>
+	  <div class="panel-footer" ng-if="(message!=null)?true:false"><span>Last attempt Info : <u>{{message}}</u></span></div>
+			<a href="#!/reset_password" style="text-align: center;">Forgot Password?</a>
+	</form>
+</div> 
+</center>
+	<!--
+    <div class="container">
+    <div class="row">
+    	<div class="col-md-4 col-md-offset-4">
+    		<img src="../support.png" class="support_brand">
+    	</div>
+		<div class="col-md-4 col-md-offset-4">
+    		<div class="panel panel-default">
+			  	<div class="panel-heading">
+			    	<h3 class="panel-title">Please sign in</h3>
+			 	</div>
+			  	<div class="panel-body">
+			    	<form accept-charset="UTF-8" role="form" autocomplete="off">
+                    <fieldset>
+			    	  	<div class="form-group">
+			    		    <input class="form-control" placeholder="user ID" name="user_id" type="text" ng-model="user_id">
+			    		</div>
+			    		<div class="form-group">
+			    			<input class="form-control" placeholder="Password" name="password" type="password" value="" ng-model="password">
+			    		</div>
+			    		<input class="btn btn-lg btn-primary btn-block" type="submit" value="Login" ng-click="login()">
+
+			    	</fieldset>
+			      	</form>
+			    </div>
+			    <div class="panel-footer" ng-if="(message!=null)?true:false"><span>Last attempt Info : <u>{{message}}</u></span></div>
+			</div>
+			<p style="text-align: center;"><a href="#!/reset_password">Forgot Password?</a></p>
+		</div>
+	</div>
+</div>-->
+</div>

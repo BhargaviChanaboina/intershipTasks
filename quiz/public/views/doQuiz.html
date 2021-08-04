@@ -1,0 +1,35 @@
+<html>
+    <head>
+<link rel="stylesheet" type="text/css" href="css/userAndQuiz.css" >
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    </head>
+    <body ng-app="app">
+        <div>
+            <center><h1>Take Quiz!!!</h1></center>
+            <br>
+            <div ng-controller="newCtrl" style="position:absolute;top:20%;left:40%;">
+            <b>ID:</b>
+            <input type="text" ng-model="ID" />
+            <input type="button" value="takeQuiz" ng-click="getQuiz()" />
+            <table ng-repeat="record in info" >
+                <tr>
+                     <td><label class="questionLabel"><b>{{record.question}}</b></label>
+                    </td> 
+                </tr>  
+                <tr> <td> <input type="radio"  value={{record.option1}} name={{$index}} ng-model="output[$index]" /><label class="checklabel">{{record.option1}}</label></td> 
+                    <td> <input type="radio"  value={{record.option2}} name={{$index}} ng-model="output[$index]"/><label  class="checklabel">{{record.option2}}</label></td> 
+                    <td> <input type="radio" value={{record.option3}} name={{$index}} ng-model="output[$index]"/><label class="checklabel">{{record.option3}}</label></td>
+                </tr> 
+            </table> 
+            
+            <input type="button" value="submitQuiz" ng-click="submit()" />
+            <div id="scoreDiv" style="position:relative;top:100%;left:50%;" ng-show="scoreShow">
+                   <br> <b>SCORE</b>:{{score}}</div>
+           </div>
+        
+    </div>
+        <script src="/controllers/playCtrl.js">
+
+        </script>
+    </body>
+</html>

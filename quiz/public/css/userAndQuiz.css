@@ -1,0 +1,62 @@
+body{
+    background-color : antiquewhite;
+}
+input[type="text"]{
+    height : 30px;
+    width  :150px;
+    background-color :  darkgrey; 
+}
+input[type="button"]{
+    height : 30px;
+    width  : 80px;
+    background-color :azure;
+}
+input[type="radio"]{
+    height : 10px;
+    width : 10px;
+
+}
+.checklabel{
+
+}
+label{
+    font-size : 20px;
+    color     :mediumblue;
+}
+.questionLabel{
+    font-size : 25px;
+    color     :darkolivegreen;
+    text-decoration-style : wavy;
+}
+input[type="textarea"]{
+    height : 40px;
+    background-color : wheat;
+}
+
+#quizMainDiv{
+    position : absolute;
+    /*height:600px;*/
+    top : 30%;
+    left : 30%;
+}
+input[type="search"]{
+    height : 30px;
+    width : 300px;
+}
+li{
+    border : 1px solid #ddd;
+    margin-top :  -1px; /* Prevent double borders */
+    background-color : #f6f6f6;
+    padding : 12px;
+    text-decoration : none;
+    font-size : 18px;
+    color : black;
+    position :"absolute";
+    display : block;
+  
+}
+ ul{
+    list-style-type : none;
+    padding  : 0;
+    margin : 0;
+  }

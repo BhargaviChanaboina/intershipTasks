@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>SNAKE</title>
+	<link rel="stylesheet" type="text/css" href="game.css">
+	
+</head>
+<body>
+	<div id ="main" class="score">Score : <span id="scoreId">0</span> |  
+	  <input type="radio" onclick="setSpeed(this)" name="speed" value="80"> <i>Fast</i>
+	  <input type="radio" onclick="setSpeed(this)" name="speed" value="200"> <i>Medium</i>
+	  <input type="radio" onclick="setSpeed(this)" name="speed" value="1000"> <i>Slow</i>
+	  <a href="file:///C:\Users\arun\Desktop\Game\game.html"><b>Restart</b></a>
+	</div>
+	<div class="content">
+		<div class="grid">
+		<div id="move"><p class="startText"><i>Press any <b>arrow</b> key to start the action...</i></p></div>
+		<div id="foodId" class="food"></div>
+	</div>
+	</div>
+</body>
+<script type="text/javascript" src="game.js"></script>
+</html>
